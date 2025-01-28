@@ -13,28 +13,17 @@ public abstract class Personnage {
         return nom;
     }
 
-    public void parler(String texte) {
-        System.out.println("Le " + donnerAuteur() + " " + getNom() + " : « " + texte + " »");
+    public int getForce() {
+        return force;
     }
 
-    public void frapper(Personnage adversaire) {
-        System.out.println("Le " + donnerAuteur() + " " + getNom() + " donne un grand coup au " + adversaire.donnerAuteur() + " " + adversaire.getNom());
-        adversaire.recevoirCoup(force / 3);
-    }
+    // Méthode abstraite
+    public abstract String donnerAuteur();
 
-    public void recevoirCoup(int forceCoup) {
-        force -= forceCoup;
-        if (force <= 0) {
-            force = 0;
-            parler("J’abandonne...");
-        } else {
-            parler("Aïe");
-        }
-    }
-    public boolean estATerre() {
-        return force <= 0;
-    }
+   
 
+    public abstract void recevoirCoup(int forceCoup);
 
-    protected abstract String donnerAuteur();
+    public abstract void parler(String texte);
+    public abstract void frapper(Personnage adversaire);
 }
