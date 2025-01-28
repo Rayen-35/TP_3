@@ -31,6 +31,10 @@ public abstract class Personnage {
             parler("Aïe");
         }
     }
+    public boolean estATerre() {
+        return force <= 0;
+    }
+
 
     protected abstract String donnerAuteur();
 }
