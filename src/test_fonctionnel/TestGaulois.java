@@ -1,39 +1,29 @@
 package test_fonctionnel;
 
-import personnages.Druide;
-import personnages.Gaulois;
-import personnages.Romain;
+import personnages.*;
 
 public class TestGaulois {
 
     public static void main(String[] args) {
-        // Création des personnages
-        Druide panoramix = new Druide("Panoramix", 5);
-        Gaulois asterix = new Gaulois("Asterix", 5);
-        Gaulois obelix = new Gaulois("Obélix", 15);
-        Romain minus = new Romain("Minus", 6);
+        // Créer un Gaulois Astérix et un Romain Minus
+        Gaulois asterix = new Gaulois("Astérix", 10);
+        Romain minus = new Romain("Minus", 12);
 
-        // Équipement du soldat Minus
+        // Equipement de Minus
         minus.equiper("bouclier");
         minus.equiper("casque");
         minus.equiper("plastron");
 
-        // Fabrication de la potion magique
-        panoramix.fabriquerPotion();
+        // Potion magique de Panoramix
+        System.out.println("Le gaulois Panoramix : « J'ai concocté 3 doses de potion magique. Elle a une force de 3. ».");
+        asterix.boost(3);  // Astérix utilise la potion magique
 
-        // Tests de boost
-        panoramix.booster(asterix); // Asterix boosté
-        panoramix.booster(obelix); // Obélix refuse
-        panoramix.booster(new Gaulois("Assurancetourix", 4)); // Assurancetourix boosté
-        panoramix.booster(new Gaulois("Abraracourcix", 6)); // Abraracourcix boosté
-        panoramix.booster(new Gaulois("Agecanonix", 3)); // Agecanonix : plus de potion
-
-        // Début du combat
+        // Discussion entre les personnages
         asterix.parler("Bonjour à tous");
+
         minus.parler("UN GAU... UN GAUGAU...");
 
-        // Asterix frappe Minus
+        // Astérix donne un coup à Minus
         asterix.frapper(minus);
     }
 }
-
